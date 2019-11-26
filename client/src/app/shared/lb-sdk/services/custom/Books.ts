@@ -48,7 +48,7 @@ export class BooksApi extends BaseLoopBackApi {
   public patchOrCreate(data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/books";
+    "/Books";
     let _routeParams: any = {};
     let _postBody: any = {
       data: data
@@ -61,7 +61,7 @@ export class BooksApi extends BaseLoopBackApi {
   /**
    * Patch attributes for a model instance and persist it into the data source.
    *
-   * @param {any} id books id
+   * @param {any} id Books id
    *
    * @param {object} data Request data.
    *
@@ -79,7 +79,7 @@ export class BooksApi extends BaseLoopBackApi {
   public patchAttributes(id: any, data: any = {}, customHeaders?: Function): Observable<any> {
     let _method: string = "PATCH";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
-    "/books/:id";
+    "/Books/:id";
     let _routeParams: any = {
       id: id
     };
