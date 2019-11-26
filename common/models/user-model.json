@@ -13,7 +13,24 @@
     }
   },
   "validations": [],
-  "relations": {},
-  "acls": [],
+  "relations": {
+    "userBookProgress": {
+      "type": "hasMany",
+      "model": "UserBookProgress",
+      "foreignKey": "userModelId"
+    },
+    "books": {
+      "type": "hasMany",
+      "model": "Books",
+      "foreignKey": "userModelId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

@@ -1,21 +1,13 @@
 {
-  "name": "Books",
+  "name": "UserBookProgress",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "content": {
-      "type": "string",
-      "required": true
-    },
-    "url": {
-      "type": "string"
+    "progress": {
+      "type": "number"
     },
     "rating": {
       "type": "number"
@@ -28,10 +20,10 @@
       "model": "UserModel",
       "foreignKey": ""
     },
-    "userBookProgress": {
-      "type": "hasMany",
-      "model": "UserBookProgress",
-      "foreignKey": "booksId"
+    "books": {
+      "type": "belongsTo",
+      "model": "Books",
+      "foreignKey": ""
     }
   },
   "acls": [],

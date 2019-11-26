@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "start": "node .",
     "dev": "./node_modules/nodemon/bin/nodemon.js --ignore 'docker/' --ignore 'client/' server/server.js",
-    "sdk:client": "DEBUG=boot:,common:models:,server:* SKIP_SEEDING=true ./node_modules/.bin/lb-sdk server/server.js client/src/app/shared/lb-sdk -i enabled -w enabled"
+    "sdk": "DEBUG=boot:,common:models:,server:* SKIP_SEEDING=true ./node_modules/.bin/lb-sdk server/server.js client/src/app/shared/lb-sdk -i enabled -w enabled"
   },
   "dependencies": {
     "@mean-expert/loopback-sdk-builder": "^2.3.1",

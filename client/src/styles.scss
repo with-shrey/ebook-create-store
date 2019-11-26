@@ -1,8 +1,5 @@
 $enable-flex: true;
 $enable-grid-classes: true;
 
-@import '~bootstrap/scss/_variables.scss';
-@import '~bootstrap/scss/_mixins.scss';
-@import '~bootstrap/scss/_reboot.scss';
-@import '~bootstrap/scss/_grid.scss';
-@import '~bulma/bulma';
+@import '~bootstrap/scss/bootstrap-grid';
+//@import "~bulma/css/bulma.min.css";

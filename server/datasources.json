@@ -1,7 +1,7 @@
 {
   "db": {
     "host": "db",
-    "port": 2700,
+    "port": 27017,
     "database": "ebook",
     "name": "db",
     "connector": "loopback-connector-mongodb"

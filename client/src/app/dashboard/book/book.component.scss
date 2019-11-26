@@ -1,0 +1,27 @@
+.book {
+  height: 300px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.img {
+  height: 80%;
+  width: 100%;
+}
+
+.cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
