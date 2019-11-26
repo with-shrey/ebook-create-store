@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+$enable-flex: true;
+$enable-grid-classes: true;
+
+@import '~bootstrap/scss/_variables.scss';
+@import '~bootstrap/scss/_mixins.scss';
+@import '~bootstrap/scss/_reboot.scss';
+@import '~bootstrap/scss/_grid.scss';
+@import '~bulma/bulma';
