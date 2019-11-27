@@ -61,7 +61,7 @@ export class EditorComponent implements OnInit {
     /** In Angular 5, including the header Content-Type can invalidate your request */
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    this.http.post(`http://localhost:3000/api/Books/addByPDF?${params.toString()}`, formData)
+    this.http.post(`/api/Books/addByPDF?${params.toString()}`, formData)
         .subscribe(
             data => {
               this.loading = false;
