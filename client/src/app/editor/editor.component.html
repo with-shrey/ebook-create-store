@@ -5,10 +5,12 @@
 <tabs (currentTabChange)="error = '';">
     <tab tabTitle="Using File">
         <div class="container">
-            <div class="columns" style="margin-top: 50px;">
+            <div class="columns" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
                 <input [(ngModel)]="book.title" class="input column is-three-quarters" placeholder="Book Title"
                        type="text"/>
-                <button (click)="storeUsingFile()" [disabled]="loading" class="button is-success column">Store</button>
+                <button (click)="storeUsingFile()" [disabled]="loading" class="button is-success column"
+                        style="margin-left: 10px;">Store
+                </button>
             </div>
             <div class="file has-name is-fullwidth">
                 <label class="file-label">
@@ -31,10 +33,11 @@
     </tab>
     <tab active="true" tabTitle="Using Editor">
         <div class="container">
-            <div class="columns" style="margin-top: 50px;">
+            <div class="columns" style="margin-top: 50px; margin-left: 10px; margin-right: 10px;">
                 <input [(ngModel)]="book.title" class="input column is-three-quarters" placeholder="Book Title"
                        type="text"/>
-                <button (click)="storeUsingEditor()" [disabled]="loading" class="button is-success column">Store
+                <button (click)="storeUsingEditor()" [disabled]="loading" class="button is-success column"
+                        style="margin-left: 10px;">Store
                 </button>
             </div>
             <app-ngx-editor

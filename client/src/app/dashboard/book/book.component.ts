@@ -23,7 +23,7 @@ export class BookComponent implements OnInit {
     ratingChanged($event: number) {
         if (this.userBookProgress) {
             this.userBookProgressApi.patchAttributes(this.userBookProgress.id, {
-                rating: this.rating
+                rating: $event
             }).subscribe(console.log, console.error)
         }
     }

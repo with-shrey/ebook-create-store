@@ -3,6 +3,7 @@ import {Books} from '../shared/lb-sdk/models';
 import {BooksApi, UserModelApi} from '../shared/lb-sdk/services/custom';
 import {LoopBackAuth} from '../shared/lb-sdk/services/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-editor',
@@ -20,7 +21,8 @@ export class EditorComponent implements OnInit {
       private http: HttpClient,
       private authService: LoopBackAuth,
       private userApi: UserModelApi,
-      private booksApi: BooksApi
+      private booksApi: BooksApi,
+      private router: Router
   ) {
   }
 
@@ -63,6 +65,7 @@ export class EditorComponent implements OnInit {
         .subscribe(
             data => {
               this.loading = false;
+              this.router.navigate(['']);
               console.log(data)
             },
             error => {
@@ -86,6 +89,7 @@ export class EditorComponent implements OnInit {
     this.booksApi.addByContent(this.book.title, this.book.content).subscribe(data => {
       console.log(data);
       this.loading = false;
+      this.router.navigate([''])
     });
   }
 

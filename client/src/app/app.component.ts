@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LoopBackAuth} from './shared/lb-sdk/services/core';
 import {UserModelApi} from './shared/lb-sdk/services/custom';
 import {UserModel} from './shared/lb-sdk/models';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 
 @Component({
     selector: 'app-root',
@@ -20,20 +20,20 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.userApi.login({
-            email: 'string@string.com',
-            password: 'string'
-        }).subscribe(user => {
-            this.authService.setToken(user);
-        });
         this.isAuthenticated = !!this.authService.getCurrentUserId();
         this.user = <UserModel>this.authService.getCurrentUserData();
+        this.router.events.subscribe((val) => {
+            if (val instanceof NavigationEnd) {
+                this.isAuthenticated = !!this.authService.getCurrentUserId();
+                this.user = <UserModel>this.authService.getCurrentUserData();
+            }
+        });
+
     }
 
 
     logout() {
         this.authService.clear();
-        this.ngOnInit();
         this.router.navigate(['auth', 'login'])
 
     }

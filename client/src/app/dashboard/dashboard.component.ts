@@ -38,9 +38,13 @@ export class DashboardComponent implements OnInit {
             }).subscribe((userBooks: UserBookProgress[]) => {
                 this.userBooks = userBooks;
                 this.loading--;
+            }, error => {
+                this.loading--;
             })
         }
-        this.booksApi.count().subscribe(({count}) => this.bookCount = count);
+        this.booksApi.count().subscribe(({count}) => this.bookCount = count, error => {
+            this.loading--;
+        });
         this.loadBooks();
 
     }
