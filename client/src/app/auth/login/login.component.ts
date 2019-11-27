@@ -11,18 +11,23 @@ export class LoginComponent implements OnInit {
 
     email: string;
     password: string;
+    loading: boolean;
 
     constructor(private usermodelapi : UserModelApi, private loopBackAuth : LoopBackAuth, private router : Router) {
     }
 
     matchUser(){
+        this.loading = true;
         this.usermodelapi.login(
             {
                 email: this.email,
                 password: this.password
             }).subscribe(token => {
+            this.loading = false;
             this.loopBackAuth.setToken(token);
             this.router.navigate(['']);
+        }, error => {
+            this.loading = false;
         });
             };
 

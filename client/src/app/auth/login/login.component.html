@@ -1,7 +1,8 @@
+<progress *ngIf="!!loading" class="progress is-small is-primary" max="100">15%</progress>
 <div class="box">
-    <h3 class="subtitle is-3">
-        Login
-    </h3> 
+  <h3 class="subtitle is-3">
+    Login
+  </h3>
 
   <div class="container">
     <label for="uname" class="subtitle is-6"><b>Username</b></label>
@@ -10,7 +11,7 @@
     <label for="psw" class="subtitle is-6"><b>Password</b></label>
     <input [(ngModel)]="password" class="input is-info" type="password" placeholder="Password" name="psw" required>
     <br>
-    <button class="button is-light" type="submit"  (click)="matchUser()" >Login</button>
+    <button class="button is-light" type="submit" (click)="matchUser()" >Login</button>
     <br>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me

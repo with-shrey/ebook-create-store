@@ -1,11 +1,13 @@
+<progress *ngIf="!!loading" class="progress is-small is-primary" max="100">15%
+</progress>
 <div class="box">
-    <h3 class="subtitle is-3">
-        Sign Up
-    </h3> 
+  <h3 class="subtitle is-3">
+    Sign Up
+  </h3>
 
   <div class="container">
     <label for="uname" class="subtitle is-6"><b>First Name</b></label>
-    <input [(ngModel)]="firstName"class="input is-info" type="text" placeholder="First Name" name="uname" required>
+    <input [(ngModel)]="firstName" class="input is-info" type="text" placeholder="First Name" name="uname" required>
     <br>
     <label for="uname" class="subtitle is-6"><b>Last Name</b></label>
     <input [(ngModel)]="lastName" class="input is-info" type="text" placeholder="Last Name" name="lname" required>
@@ -20,15 +22,15 @@
     <input [(ngModel)]="password" class="input is-info" type="password" placeholder="Password" name="psw" required>
     <br>
     <label for="cpsw" class="subtitle is-6"><b>Confirm Password</b></label>
-    <input  [(ngModel)]="confirmPass" class="input is-info" type="password" placeholder="Confirm Password" name="cpsw" required>
+    <input [(ngModel)]="confirmPass" class="input is-info" type="password" placeholder="Confirm Password" name="cpsw" required>
     <p *ngIf="password!=confirmPass">
-        password doesn't match
+      password doesn't match
     </p>
     <p *ngIf="password.length < 8">
-        password length must be greater than or equal to 8.
+      password length must be greater than or equal to 8.
     </p>
     <br>
-    <button  *ngIf="password == confirmPass && password.length >= 8" class="button is-light" type="submit"  (click)="registerUser()">Sign Up</button>
+    <button *ngIf="password == confirmPass && password.length >= 8" class="button is-light" type="submit" (click)="registerUser()">Sign Up</button>
     <br>
   </div>
 </div>

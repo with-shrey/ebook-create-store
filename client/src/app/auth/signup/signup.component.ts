@@ -13,12 +13,14 @@ export class SignupComponent implements OnInit {
     email: string;
     password: string;
     confirmPass: string;
+    loading: boolean;
     constructor(private usermodelapi :  UserModelApi,private router: Router) {
 
     };
 
     registerUser (){
-            console.log("pass"+this.password);
+        this.loading = true;
+        console.log("pass" + this.password);
             console.log("ConPas"+this.confirmPass);
 
         if(this.password === this.confirmPass) {
@@ -30,7 +32,10 @@ export class SignupComponent implements OnInit {
                     password: this.password
                 })
                 .subscribe(user => {
+                    this.loading = false;
                     this.router.navigate(['auth', 'login']);
+                }, error => {
+                    this.loading = false;
                 });
 
         }
