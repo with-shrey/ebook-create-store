@@ -1,20 +1,24 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {AppComponent} from './app.component';
+import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ReaderComponent} from './reader/reader.component';
 import {AuthGuard} from './auth.guard';
+import {EditorComponent} from './editor/editor.component';
 
 const routes: Routes = [
     {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-    {path: 'editor', loadChildren: () => import('./editor/editor.module').then(m => m.EditorModule)},
     {
         path: '',
-        // canActivate: [AuthGuard],
         children: [
             {
                 path: 'reader/:bookId',
+                canActivate: [AuthGuard],
                 component: ReaderComponent
+            },
+            {
+                path: 'editor',
+                canActivate: [AuthGuard],
+                component: EditorComponent
             },
             {
                 path: '',

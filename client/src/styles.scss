@@ -2,4 +2,10 @@ $enable-flex: true;
 $enable-grid-classes: true;
 
 @import '~bootstrap/scss/bootstrap-grid';
+@import '~ngx-bar-rating/themes/br-default-theme';
 //@import "~bulma/css/bulma.min.css";
+
+.ngx-editor-textarea {
+  min-height: 300px !important;
+  background-color: white !important;
+}

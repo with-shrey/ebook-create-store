@@ -3,13 +3,14 @@
         <h1 class="title margin-top">Your Books</h1>
         <progress *ngIf="!!loading" class="progress is-small is-primary" max="100">15%</progress>
         <div class="row">
-            <app-book *ngFor="let userBook of userBooks" [book]="userBook.books" class="col-md-3"></app-book>
+            <app-book *ngFor="let userBook of userBooks" [book]="userBook.books" [rating]="userBook.rating"
+                      [userBookProgress]="userBook" class="col-md-3"></app-book>
         </div>
     </div>
     <h1 class="title margin-top">Available Books</h1>
     <progress *ngIf="!!loading" class="progress is-small is-primary" max="100">15%</progress>
     <div class="row">
-        <app-book *ngFor="let book of books" [book]="book" class="col-md-3"></app-book>
+        <app-book *ngFor="let book of books" [book]="book" [rating]="book.rating" class="col-md-3"></app-book>
     </div>
     <div (click)="loadBooks()"
          *ngIf="bookCount > 0 && filter.skip+ filter.limit < bookCount"

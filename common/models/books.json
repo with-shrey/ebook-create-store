@@ -11,11 +11,11 @@
       "required": true
     },
     "content": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "rating": {
       "type": "number"
@@ -33,6 +33,9 @@
       "model": "UserBookProgress",
       "foreignKey": "booksId"
     }
+  },
+  "mixins": {
+    "TimeStamp": true
   },
   "acls": [],
   "methods": {}

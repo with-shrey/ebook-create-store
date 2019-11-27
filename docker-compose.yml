@@ -27,7 +27,7 @@ services:
       - client
 
   web:
-    image: node:8.16.0-alpine
+    image: node:8.16.0
     working_dir: /apps/ah
     ports:
       - "3000:3000"

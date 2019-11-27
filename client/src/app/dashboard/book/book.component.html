@@ -1,9 +1,19 @@
-<div [routerLink]="'/reader/'+book.id" class="box book">
+<div [ngClass]="{'book': !userBookProgress, 'own-book': !!userBookProgress}"
+     class="box book">
     <div class="media-content content">
-        <div class="img">
+        <div [routerLink]="'/reader/'+book.id" class="img">
             <img class="cover" style="background-image: url('assets/images/BookComponent/bookCoverPlaceholder.png')">
         </div>
-        <h3 class="title is-6" style="margin-top: 10px"><p>{{book.title}} ({{book.rating}}/5)</p></h3>
+        <h3 [routerLink]="'/reader/'+book.id" class="title is-6" style="margin-top: 10px"><p>{{book.title}}
+            ({{book.rating}}/5)</p></h3>
+        <p *ngIf="userBookProgress">
+            <progress [value]="userBookProgress.progress" class="progress is-small is-info" max="100"
+                      style="width: 70%; display: inline-block">{{userBookProgress.progress}}%
+            </progress>
+            {{userBookProgress.progress}}%
+        </p>
+        <bar-rating (rateChange)="ratingChanged($event)" [(rate)]="rating" [max]="5"
+                    [readOnly]="!userBookProgress"></bar-rating>
     </div>
 
 </div>

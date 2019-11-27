@@ -14,12 +14,12 @@
 
     <div class="navbar-menu" id="navbarBasicExample">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a class="navbar-item" routerLink="/">
                 Dashboard
             </a>
 
-            <a class="navbar-item">
-                Editor
+            <a *ngIf="isAuthenticated" class="navbar-item" routerLink="/editor">
+                New Book
             </a>
 
         </div>
@@ -39,11 +39,11 @@
         <div *ngIf="isAuthenticated" class="navbar-end">
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
-                    USER
+                    {{user.firstName}}
                 </a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item">
+                    <a (click)="logout()" class="navbar-item">
                         Logout
                     </a>
                 </div>

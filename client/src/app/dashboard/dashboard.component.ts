@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {BooksApi, UserBookProgressApi, UserModelApi} from '../shared/lb-sdk/services/custom';
+import {BooksApi, UserModelApi} from '../shared/lb-sdk/services/custom';
 import {Books, UserBookProgress} from '../shared/lb-sdk/models';
 import {LoopBackAuth} from '../shared/lb-sdk/services/core';
-import {count} from 'rxjs/operators';
 
 @Component({
     selector: 'app-dashboard',
@@ -17,7 +16,8 @@ export class DashboardComponent implements OnInit {
     userId: string = "";
     filter = {
         limit: 8,
-        skip: -8
+        skip: -8,
+        order: 'createdAt DESC'
     };
     private bookCount: number = 0;
 

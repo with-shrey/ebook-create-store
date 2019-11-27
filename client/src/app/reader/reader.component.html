@@ -1,1 +1,19 @@
-<p>reader works!</p>
+<div style="background-color: aliceblue">
+    <progress *ngIf="!!loading" class="progress is-small is-primary" max="100" style="position: fixed; top: 0px">15%
+    </progress>
+    <progress *ngIf="!loading" [value]="userBook.progress" class="progress is-small is-success" max="100"
+              style="position: fixed; top: 0px; z-index: 1000">15%
+    </progress>
+    <div *ngIf="error" class="notification is-danger">
+        {{error}}
+    </div>
+    <pdf-viewer (after-load-complete)="loading = false; error = ''"
+                (error)="loading = false; error= 'Error Loading PDF'"
+                (on-progress)="onProgress($event)"
+                [fit-to-page]="true"
+                [original-size]="true"
+                [render-text]="true"
+                [src]="book.url"
+                style="display: block;"
+    ></pdf-viewer>
+</div>
