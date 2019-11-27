@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="box">
+    <h3 class="subtitle is-3">
+        Login
+    </h3> 
+
+  <div class="container">
+    <label for="uname" class="subtitle is-6"><b>Username</b></label>
+    <input [(ngModel)]="email" class="input is-info" type="text" placeholder="Username" name="uname" required>
+    <br>
+    <label for="psw" class="subtitle is-6"><b>Password</b></label>
+    <input [(ngModel)]="password" class="input is-info" type="password" placeholder="Password" name="psw" required>
+    <br>
+    <button class="button is-light" type="submit"  (click)="matchUser()" >Login</button>
+    <br>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+    <br>
+  </div>
+</div>
