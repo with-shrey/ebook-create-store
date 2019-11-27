@@ -9,7 +9,12 @@
     "firstName": {
       "type": "string",
       "required": true,
-      "default": "lastName"
+      "default": ""
+    },
+    "lastName": {
+      "type": "string",
+      "required": true,
+      "default": ""
     }
   },
   "validations": [],

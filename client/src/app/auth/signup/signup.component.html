@@ -5,19 +5,28 @@
 
   <div class="container">
     <label for="uname" class="subtitle is-6"><b>First Name</b></label>
-    <input class="input is-info" type="text" placeholder="First Name" name="uname" required>
+    <input [(ngModel)]="firstName"class="input is-info" type="text" placeholder="First Name" name="uname" required>
     <br>
     <label for="uname" class="subtitle is-6"><b>Last Name</b></label>
-    <input class="input is-info" type="text" placeholder="Last Name" name="lname" required>
+    <input [(ngModel)]="lastName" class="input is-info" type="text" placeholder="Last Name" name="lname" required>
     <br>
     <label for="email" class="subtitle is-6"><b>Email</b></label>
-    <input class="input is-info" type="text" placeholder="Email" name="email" required>
+    <input [(ngModel)]="email" class="input is-info" type="text" placeholder="Email" name="email" required>
     <br>
+    <!-- <p *ngIf="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) == false">
+        enter correct email
+    </p> -->
     <label for="psw" class="subtitle is-6"><b>Password</b></label>
-    <input class="input is-info" type="password" placeholder="Password" name="psw" required>
+    <input [(ngModel)]="password" class="input is-info" type="password" placeholder="Password" name="psw" required>
     <br>
     <label for="cpsw" class="subtitle is-6"><b>Confirm Password</b></label>
-    <input class="input is-info" type="confirmPassword" placeholder="Confirm Password" name="cpsw" required>
+    <input  [(ngModel)]="confirmPassword" class="input is-info" type="confirmPassword" placeholder="Confirm Password" name="cpsw" required>
+    <!-- <p *ngIf="password!=confirmPassword">
+        password doesn't match
+    </p>
+    <p *ngIf="password.length >= 8">
+        password length must be greater than or equal to 8.
+    </p> -->
     <br>
     <button class="button is-light" type="submit">Sign Up</button>
     <br>
