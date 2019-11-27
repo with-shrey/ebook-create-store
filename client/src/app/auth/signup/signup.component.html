@@ -20,15 +20,15 @@
     <input [(ngModel)]="password" class="input is-info" type="password" placeholder="Password" name="psw" required>
     <br>
     <label for="cpsw" class="subtitle is-6"><b>Confirm Password</b></label>
-    <input  [(ngModel)]="confirmPassword" class="input is-info" type="confirmPassword" placeholder="Confirm Password" name="cpsw" required>
-    <!-- <p *ngIf="password!=confirmPassword">
+    <input  [(ngModel)]="confirmPass" class="input is-info" type="password" placeholder="Confirm Password" name="cpsw" required>
+    <p *ngIf="password!=confirmPass">
         password doesn't match
     </p>
-    <p *ngIf="password.length >= 8">
+    <p *ngIf="password.length < 8">
         password length must be greater than or equal to 8.
-    </p> -->
+    </p>
     <br>
-    <button class="button is-light" type="submit">Sign Up</button>
+    <button  *ngIf="password == confirmPass && password.length >= 8" class="button is-light" type="submit"  (click)="registerUser()">Sign Up</button>
     <br>
   </div>
 </div>
