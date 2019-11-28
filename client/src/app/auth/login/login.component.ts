@@ -12,11 +12,12 @@ export class LoginComponent implements OnInit {
     email: string;
     password: string;
     loading: boolean;
-
+    error: string;
     constructor(private usermodelapi : UserModelApi, private loopBackAuth : LoopBackAuth, private router : Router) {
     }
 
     matchUser(){
+        this.error = '';
         this.loading = true;
         this.usermodelapi.login(
             {
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
             this.loopBackAuth.setToken(token);
             this.router.navigate(['']);
         }, error => {
+            this.error = "Error while logging in";
             this.loading = false;
         });
             };

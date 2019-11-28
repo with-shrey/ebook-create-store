@@ -3,6 +3,7 @@ import {LoopBackAuth} from './shared/lb-sdk/services/core';
 import {UserModelApi} from './shared/lb-sdk/services/custom';
 import {UserModel} from './shared/lb-sdk/models';
 import {NavigationEnd, Router} from '@angular/router';
+import { LoopBackConfig } from './shared/lb-sdk';
 
 @Component({
     selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        LoopBackConfig.setBaseURL('/');
         this.isAuthenticated = !!this.authService.getCurrentUserId();
         this.user = <UserModel>this.authService.getCurrentUserData();
         this.router.events.subscribe((val) => {

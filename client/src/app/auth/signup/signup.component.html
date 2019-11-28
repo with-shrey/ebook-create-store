@@ -1,3 +1,6 @@
+<div *ngIf="error" class="notification is-danger">
+  {{error}}
+</div>
 <progress *ngIf="!!loading" class="progress is-small is-primary" max="100">15%
 </progress>
 <div class="box">

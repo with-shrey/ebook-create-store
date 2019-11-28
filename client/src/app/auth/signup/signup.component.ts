@@ -14,11 +14,13 @@ export class SignupComponent implements OnInit {
     password: string;
     confirmPass: string;
     loading: boolean;
+    error: string;
     constructor(private usermodelapi :  UserModelApi,private router: Router) {
 
     };
 
     registerUser (){
+        this.error = '';
         this.loading = true;
         console.log("pass" + this.password);
             console.log("ConPas"+this.confirmPass);
@@ -35,6 +37,7 @@ export class SignupComponent implements OnInit {
                     this.loading = false;
                     this.router.navigate(['auth', 'login']);
                 }, error => {
+                    this.error = "Error while registering user"
                     this.loading = false;
                 });
 
