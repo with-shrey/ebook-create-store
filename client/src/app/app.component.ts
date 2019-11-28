@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        LoopBackConfig.setBaseURL('/');
+        LoopBackConfig.setBaseURL(location.origin+'/');
         this.isAuthenticated = !!this.authService.getCurrentUserId();
         this.user = <UserModel>this.authService.getCurrentUserData();
         this.router.events.subscribe((val) => {
