@@ -1,0 +1,36 @@
+@import "variables";
+
+@mixin tablet {
+  @media (min-width: #{$small-screen-up}) and (max-width: #{$medium-screen-up}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$small-screen}) {
+    @content;
+  }
+}
+
+@mixin large-devices {
+  @media #{$medium-and-up} {
+    @content;
+  }
+}
+
+@mixin mobile-and-tablet {
+  @media #{$medium-and-down} {
+    @content;
+
+    .gallery .gallery-content {
+      text-align: center;
+      height: initial;
+      padding-top: 32px;
+      .gallery-uplod-browse, .gallery .gallery-content .gallery-uplod-product.f-he-wid {
+        margin: 0 auto 20px;
+        display: block;
+      }
+    }
+  }
+}
+
