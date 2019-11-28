@@ -1,3 +1,5 @@
+@import '../../../scss/mixins';
+
 .box{
     border-style: solid;
     border-width: 1px;
@@ -5,6 +7,11 @@
     max-height: 10%;
     max-width: 30%;
     margin-left: 34%;
+    @include mobile-and-tablet{
+        max-width: 95%;
+        min-width: 95%;
+        margin-left: 0%;
+    }
     h3{
     text-align: center;
     }
