@@ -1,24 +1,24 @@
 <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-            <img height="28" src="https://bulma.io/images/bulma-logo.png" width="112">
+        <a class="navbar-item" [routerLink]="['/']" >
+            <img height="28" src="/assets/images/logo.png" width="112">
         </a>
 
-        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbarBasicExample"
-           role="button">
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navbar-menu"
+           role="button" [ngClass]="{active: navExpanded}" (click)="navExpanded = !navExpanded">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
     </div>
 
-    <div class="navbar-menu" id="navbarBasicExample">
+    <div class="navbar-menu" id="navbar-menu" [ngClass]="{active: navExpanded}">
         <div class="navbar-start">
-            <a class="navbar-item" routerLink="/">
+            <a class="navbar-item" routerLink="/"  routerLinkActive="router-link-active">
                 Dashboard
             </a>
 
-            <a *ngIf="isAuthenticated" class="navbar-item" routerLink="/editor">
+            <a *ngIf="isAuthenticated" class="navbar-item" routerLink="/editor"  routerLinkActive="router-link-active">
                 New Book
             </a>
 
