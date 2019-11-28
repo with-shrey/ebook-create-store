@@ -12,7 +12,7 @@ import { LoopBackConfig } from './shared/lb-sdk';
 export class AppComponent implements OnInit {
     isAuthenticated: boolean = false;
     user: UserModel;
-    navExpanded = false;
+    navExpanded = true;
     constructor(
         private authService: LoopBackAuth,
         private userApi: UserModelApi,
