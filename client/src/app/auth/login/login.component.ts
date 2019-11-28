@@ -26,13 +26,23 @@ export class LoginComponent implements OnInit {
             }).subscribe(token => {
             this.loading = false;
             this.loopBackAuth.setToken(token);
-            this.router.navigate(['']);
+            let redirectUrl = this.getParameterByName('redirectUrl', location.href);
+
+            this.router.navigateByUrl(redirectUrl? redirectUrl : '/');
         }, error => {
             this.error = "Error while logging in";
             this.loading = false;
         });
             };
-
+     getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
     ngOnInit() {
     }
 
