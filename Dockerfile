@@ -15,5 +15,5 @@ COPY --from=backendBuilder /apps/ah/client/src/app/shared/lb-sdk ./src/app/share
 RUN npm run build
 
 FROM nginx:stable as rpBuilder
-COPY ./reverse-proxy/nginx.prod.conf /etc/nginx/conf.d/default.conf
+COPY ./reverse-proxy/ngnix.prod.conf /etc/nginx/conf.d/default.conf
 COPY --from=clientBuilder /apps/ah/dist /usr/share/nginx/html
