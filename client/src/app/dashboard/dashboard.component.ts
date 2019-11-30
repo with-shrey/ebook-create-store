@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
         skip: -8,
         order: 'createdAt DESC'
     };
-    private bookCount: number = 0;
+    bookCount: number = 0;
 
     constructor(
         private booksApi: BooksApi,
