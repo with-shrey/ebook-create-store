@@ -10,7 +10,9 @@ env:
     - COMMIT=${TRAVIS_COMMIT::8}  
 script:
   - echo "Ritik@123" | docker login -u "161b178" --password-stdin
-  - docker build --target backendBuilder -t 161b178/ebook-backend:${COMMIT} .
-  - docker build --target rpBuilder -t 161b178/ebook-proxy:${COMMIT} .
+  - docker build --target backendBuilder -t 161b178/ebook-backend:${COMMIT} -t 161b178/ebook-backend:latest .
+  - docker build --target rpBuilder -t 161b178/ebook-proxy:${COMMIT} -t 161b178/ebook-proxy:latest .
   - docker push 161b178/ebook-backend:${COMMIT}
+  - docker push 161b178/ebook-backend:latest
   - docker push 161b178/ebook-proxy:${COMMIT}
+  - docker push 161b178/ebook-proxy:latest
