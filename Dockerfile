@@ -16,6 +16,5 @@ RUN npm run build
 
 FROM nginx:stable as rpBuilder
 WORKDIR /usr/share/nginx/html
-RUN mkdir /usr/share/nginx/html
 COPY --from=clientBuilder /apps/ah/dist /usr/share/nginx/html
 COPY ./reverse-proxy/ngnix.prod.conf /etc/nginx/conf.d/default.conf
